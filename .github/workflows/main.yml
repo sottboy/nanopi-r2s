@@ -17,8 +17,6 @@ on:
       - 'config_rk3328'
       - 'nanopi-r2_linux_defconfig'
       - 'CHANGELOG.md'
-  schedule:
-    - cron: '00 18 * * *'
 
 jobs:
 
@@ -72,23 +70,6 @@ jobs:
           rm -rf luci-theme-argon
           git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
 
-      - name: Install filebrowser
-        run: |
-          rm -rf openwrt
-          git clone --depth 1 -b openwrt-18.06 https://github.com/project-openwrt/openwrt.git
-          mkdir -p rk3328/friendlywrt/package/ctcgfw
-          cp -a openwrt/package/ctcgfw/filebrowser rk3328/friendlywrt/package/ctcgfw/
-          cp -a openwrt/package/ctcgfw/luci-app-filebrowser rk3328/friendlywrt/package/ctcgfw/
-          rm -rf openwrt
-
-      - name: Install luci-app-r2sflasher
-        run: |
-          rm -rf r2sflasher
-          mkdir -p rk3328/friendlywrt/package/songchenwen
-          git clone https://github.com/songchenwen/nanopi-r2s.git r2sflasher
-          cp -a r2sflasher/luci-app-r2sflasher rk3328/friendlywrt/package/songchenwen/
-          rm -rf r2sflasher
-
       # refer to klever1988/nanopi-openwrt, modified by Chuck <fanck0605@qq.com>
       - name: Install Openwrt patches
         run: |
@@ -114,12 +95,6 @@ jobs:
         run: |
           cat config_rk3328 > rk3328/configs/config_rk3328
           #cat config_usb-net >> rk3328/configs/config_rk3328
-
-      # 如果不喜欢互换, 直接注释即可
-      - name: Swap wan and lan
-        run: |
-          cd rk3328/friendlywrt
-          git apply ../../patches/003-openwrt-swap-wan-and-lan.patch
 
       # 编译时不要去除 set -e, 编译都报错了, 你还让它继续, 最后的固件能没有 bug?
       - name: Build FriendlyWrt
