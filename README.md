@@ -6,6 +6,8 @@
 ## 相关链接
 预编译的版本: https://github.com/fanck0605/nanopi_r2s/releases
 
+本项目发布于Action
+
 本项目采用的源码: 
 
 https://github.com/fanck0605/friendlywrt-lean
@@ -25,7 +27,6 @@ https://github.com/fanck0605/friendlywrt-kernel
 * 开启了 [Full Cone Nat](https://github.com/Chion82/netfilter-full-cone-nat)，对游戏用户支持更佳
 * 支持 IPv6，可以访问最新 IPv6 规范的互联网。
     - 需要关闭 *网络* -> *DHCP/DNS* -> *高级设置* -> *禁止解析 IPv6 DNS 记录*
-* wan 和 lan 互换，lan 口是原生千兆网卡，更加稳定
 
 ## 用法
 1. Fork 到自己的账号下
@@ -39,12 +40,10 @@ https://github.com/fanck0605/friendlywrt-kernel
 ## 注意
 应用 friendlyelec 修改的 [patch](https://github.com/fanck0605/nanopi_r2s/raw/lean/patches/002-openwrt-apply-friendlywrt.patch)，需要的自行拿走
 
-代码已经趋于稳定，一般情况不会编译失败。如果我哪天闲的蛋疼更新了源码，导致编译失败时，还请麻烦过来查看 `.yml` 与 `config` 最新异动。
-
-cifsd 与 samba 有冲突，只能二选一。(cifsd 暂时无法工作)
-ps: 可能是永久
-
 ## 特别感谢（本项目的出现离不开以下项目）
+
+尤其感谢Chuck大佬提供的项目源码，和Nanopi R2S Club群友的帮助，谢谢各位！
+
 * [soffchen/NanoPi-R2S](https://github.com/soffchen/NanoPi-R2S)
 * [klever1988/nanopi-openwrt](https://github.com/klever1988/nanopi-openwrt)
 * [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
