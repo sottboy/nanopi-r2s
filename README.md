@@ -1,10 +1,12 @@
 # 使用 Github Actions 在线编译 NanoPi-R2s 固件
 
+内核5.4.36
+
 ## 温情提醒
 刷机请**不要**保留配置，任何因保留配置导致的问题不给予解决！
 
 ## 相关链接
-预编译的版本: https://github.com/fanck0605/nanopi_r2s/releases
+Chuck预编译的版本: https://github.com/fanck0605/nanopi_r2s/releases
 
 本项目发布于Action
 
@@ -27,6 +29,10 @@ https://github.com/fanck0605/friendlywrt-kernel
 * 开启了 [Full Cone Nat](https://github.com/Chion82/netfilter-full-cone-nat)，对游戏用户支持更佳
 * 支持 IPv6，可以访问最新 IPv6 规范的互联网。
     - 需要关闭 *网络* -> *DHCP/DNS* -> *高级设置* -> *禁止解析 IPv6 DNS 记录*
+    
+精简到只有s**p
+
+没有互换wan/lan
 
 ## 用法
 1. Fork 到自己的账号下
